@@ -11,9 +11,9 @@
 
         <!-- 从九宫格布局到6宫格的改造 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newList">
                     <img src="../../images/menu1.png" alt="">
-                    <div class="mui-media-body">新闻资讯</div></a></li>
+                    <div class="mui-media-body">新闻资讯</div></router-link></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                      <img src="../../images/menu2.png" alt="">
                     <div class="mui-media-body">图片分享</div></a></li>
@@ -55,7 +55,7 @@ import {Toast} from 'mint-ui'
       },
       methods: {
           getLunbotu(){ //获取轮播图数据的方法http://www.liulongbin.top:3005接口地址
-                this.$http.get('http://www.liulongbin.top:3005/api/getlunbo').then(result =>{
+                this.$http.get('api/getlunbo').then(result =>{
                     // console.log(result.body);判断获取数据成功还是失败
                     if (result.body.status === 0){
                         // 成功

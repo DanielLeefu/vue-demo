@@ -6,8 +6,8 @@ import HomeContainer from './components/tabbar/HomeContainer.vue'
 import MemberContainer from './components/tabbar/MemberContainer.vue'
 import SearchContainer from './components/tabbar/SearchContainer.vue'
 import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'
-
-
+import NewList from './components/news/newList.vue'
+import NewInfo from './components/news/newsInfo.vue'
 
 // 3. 创建路由对象
 var router = new VueRouter({
@@ -17,7 +17,9 @@ var router = new VueRouter({
     { path: '/home', component:HomeContainer},
     {path:'/member',component:MemberContainer},
     {path:'/shopcar',component:ShopcarContainer},
-    {path:'/search',component:SearchContainer}
+    { path: '/search', component: SearchContainer },
+    { path: '/home/newList', component: NewList },
+    {path:'/home/newsinfo/:id',component:NewInfo}
     
   ],
   linkActiveClass:'myicon-active'  //自己定义的路由变色的类
