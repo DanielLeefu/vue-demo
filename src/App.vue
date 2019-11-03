@@ -6,7 +6,11 @@
     <mt-header fixed title="李思远Vue-项目" class="mystyle_header"></mt-header>
 
     <!-- 中间的路由router-view 区域 -->
-		<router-view></router-view>
+	<!-- 加动画 -->
+	<transition>
+			<router-view></router-view>
+	</transition>
+	
 
     <!-- 底部的tab-bar区域 -->
     <!-- 利用mui的tab-bar -->
@@ -45,6 +49,8 @@
 // 这是设置局部样式，lang 代表语言，scoped代表局部生效
  .app-container{
    padding-top: 40px;
+	//隐藏动画切换的滚动条
+   overflow-x: hidden;
  }
  .myicon-active{ //自己定义的点击路由变色的类
 	 color:red
@@ -53,7 +59,21 @@
 	 background: red 
  }
 
-
+.v-enter{
+	opacity:0;
+	transform: translateX(100%);
+}
+.v-leave-to{
+	opacity:0;
+	transform: translateX(-100%);
+	// 解决往上飘的问题
+	position: absolute;
+	
+}
+.v-enter-active,
+.v-leave-active{
+	transition: all 1s ease 
+}
  
 </style>
 
