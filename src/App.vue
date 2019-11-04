@@ -49,7 +49,7 @@
 // 这是设置局部样式，lang 代表语言，scoped代表局部生效
  .app-container{
    padding-top: 40px;
-   padding-bottom: 50px;
+   padding-bottom: 52px;
 	//隐藏动画切换的滚动条
    overflow-x: hidden;
  }

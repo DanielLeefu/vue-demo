@@ -7,12 +7,22 @@
       </p>
       <hr>
       <div class="content" v-html="newsinfo.content"></div>
+
+      
+
+    <!-- 评论子组件 -->
+    <!-- 父组件向子组件传参 -->
+    <comment-box :id="this.id"></comment-box>
+
   </div>
 </template>
 
 <script>
 
 import {Toast} from 'mint-ui'
+
+// 引入评论子组件
+import comment from '../subcomponents/comment.vue'
 
 export default {
     data() {
@@ -35,6 +45,9 @@ export default {
             }
         })
      }   
+    },
+    components:{
+        'comment-box':comment
     }
 }
 
