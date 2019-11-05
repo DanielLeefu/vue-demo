@@ -21,7 +21,8 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 // 全局配置请求的路径接口
 Vue.http.options.root = 'http://www.liulongbin.top:3005';
-
+// 全局设置post时候表单格式组织形式
+Vue.http.options.emulateJSON = true;
 
 
 
