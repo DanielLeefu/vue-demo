@@ -15,21 +15,21 @@
     <!-- 底部的tab-bar区域 -->
     <!-- 利用mui的tab-bar -->
   <nav class="mui-bar mui-bar-tab">
-			<router-link class="mui-tab-item" to="/home">
+			<router-link class="mui-tab-itemlsy" to="/home">
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
 			</router-link>
-			<router-link class="mui-tab-item" to="/member">
+			<router-link class="mui-tab-itemlsy" to="/member">
 				<span class="mui-icon mui-icon-extra mui-icon-extra-share"></span>
 				<span class="mui-tab-label">分类</span>
 			</router-link>
-			<router-link class="mui-tab-item" to="/shopcar">
+			<router-link class="mui-tab-itemlsy" to="/shopcar">
 				<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
 					<span class="mui-badge">0</span>
 				</span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
-			<router-link class="mui-tab-item" to="/search">
+			<router-link class="mui-tab-itemlsy" to="/search">
 				<span class="mui-icon mui-icon-contact"></span>
 				<span class="mui-tab-label">我的</span>
 			</router-link>
@@ -54,7 +54,7 @@
    overflow-x: hidden;
  }
  .myicon-active{ //自己定义的点击路由变色的类
-	 color:red
+	 color:red!important
  }
  .mystyle_header{ //自己定义的头部header的类
 	 background: red 
@@ -73,9 +73,36 @@
 }
 .v-enter-active,
 .v-leave-active{
-	transition: all 1s ease 
+	transition: all 0.5s ease 
 }
  
+//  改类名来实现改滑动无法点击的bug
+.mui-bar-tab .mui-tab-itemlsy {
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;
+}
+.mui-bar-tab .mui-tab-itemlsy .mui-icon {
+    top: 3px;
+    width: 24px;
+    height: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.mui-bar-tab .mui-tab-itemlsy .mui-icon ~ .mui-tab-label {
+    font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
 </style>
 
 
