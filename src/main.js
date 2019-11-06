@@ -33,13 +33,26 @@ import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
 
 
-// 按需导入mint-ui的组件 
-import { Header,Swipe, SwipeItem,Button } from 'mint-ui'
-Vue.component(Header.name, Header)
-// 按需配置轮播图
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+// // 按需导入mint-ui的组件 
+// import { Header,Swipe, SwipeItem,Button,Lazyload } from 'mint-ui'
+// Vue.component(Header.name, Header)
+// // 按需配置轮播图
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// // 导入图片懒加载组件(按需导入图片懒加载出不来，要用懒加载只能全部导入)
+// Vue.use(Lazyload);
+
+// 全部导入
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI)
+
+// 安装缩略图插件
+import VuePreview from 'vue-preview'
+
+Vue.use(VuePreview)
+
 
 
 // 1.3导入自己的router,js 模块

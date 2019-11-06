@@ -9,6 +9,8 @@ import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'
 import NewList from './components/news/newList.vue'
 import NewInfo from './components/news/newsInfo.vue'
 import photoList from './components/photos/photoList.vue'
+import photoInfo from './components/photos/photoinfo.vue'
+import GoodsList from './components/goods/GoodsList.vue'
 
 // 3. 创建路由对象
 var router = new VueRouter({
@@ -16,13 +18,14 @@ var router = new VueRouter({
     // 重定向
     { path:'/',redirect:'/home'},
     { path: '/home', component:HomeContainer},
-    {path:'/member',component:MemberContainer},
-    {path:'/shopcar',component:ShopcarContainer},
+    { path:'/member',component:MemberContainer},
+    { path:'/shopcar',component:ShopcarContainer},
     { path: '/search', component: SearchContainer },
     { path: '/home/newList', component: NewList },
     { path: '/home/newsinfo/:id', component: NewInfo },
-    {path:'/home/photoList',component:photoList}
-    
+    { path:'/home/photoList',component:photoList},
+    { path: '/home/photoinfo/:id', component: photoInfo },
+    { path:'/home/goodslist',component:GoodsList}
   ],
   linkActiveClass:'myicon-active'  //自己定义的路由变色的类
 })

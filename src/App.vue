@@ -46,6 +46,12 @@
 
 
 <style lang="scss" scoped>
+
+// 提升图片导航的层级
+.mint-header{
+	z-index: 99;
+}
+
 // 这是设置局部样式，lang 代表语言，scoped代表局部生效
  .app-container{
    padding-top: 40px;
@@ -54,7 +60,7 @@
    overflow-x: hidden;
  }
  .myicon-active{ //自己定义的点击路由变色的类
-	 color:red!important
+	 color:red!important  //这里会导致滑动条一上来不能正常工作
  }
  .mystyle_header{ //自己定义的头部header的类
 	 background: red 
