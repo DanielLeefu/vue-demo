@@ -12,7 +12,8 @@ import photoList from './components/photos/photoList.vue'
 import photoInfo from './components/photos/photoinfo.vue'
 import GoodsList from './components/goods/GoodsList.vue'
 import GoodsInfo from './components/goods/goodsinfo.vue'
-
+import GoodsDesc from './components/goods/goodsDesc.vue'
+import GoodsComment from './components/goods/goodsComment.vue'
 
 // 3. 创建路由对象
 var router = new VueRouter({
@@ -28,8 +29,10 @@ var router = new VueRouter({
     { path:'/home/photoList',component:photoList},
     { path: '/home/photoinfo/:id', component: photoInfo },
     { path: '/home/goodslist', component: GoodsList },
-    { path:'/home/goodsinfo/:id',component:GoodsInfo}
-
+    { path:'/home/goodsinfo/:id',component:GoodsInfo, name:"goodsinfo"},
+    { path: '/home/goodsdesc/:id', component: GoodsDesc,name:"goodsdesc"},
+    { path: '/home/goodscomment/:id', component: GoodsComment,name:"goodscomment"}
+    
 
   ],
   linkActiveClass:'myicon-active'  //自己定义的路由变色的类

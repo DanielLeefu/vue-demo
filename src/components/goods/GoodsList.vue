@@ -1,4 +1,7 @@
 <template>
+
+    
+
   <div class="goods-list">
       
       <!-- 以前的路由方法 -->
@@ -79,8 +82,11 @@ export default {
         },
         goDetail(id){ //方法二编程式跳转
                 //使用js形式进行路由导航
-                console.log(this)
-                this.$router.push("/home/goodsinfo/" + id) 
+                console.log(this);
+                // this.$router.push("/home/goodsinfo/" + id) 
+                // this.$router.push({path:"/home/goodsinfo/" + id})
+                this.$router.push({ name : "goodsinfo",params : { id }}); 
+
         }
     },
 }

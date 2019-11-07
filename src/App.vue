@@ -4,7 +4,12 @@
    
     <!-- 顶部header区域 -->
     <mt-header fixed title="李思远Vue-项目" class="mystyle_header"></mt-header>
-
+	<!-- 返回按钮 -->
+	<div class="header_back" @click="back">
+		<span> < </span>
+		<span>返回</span>
+	</div>
+	
     <!-- 中间的路由router-view 区域 -->
 	<!-- 加动画 -->
 	<transition>
@@ -41,7 +46,13 @@
 </template>
 
 <script>
- 
+ export default {
+	 methods: {
+		back(){
+			this.$router.go(-1)
+		}	 
+	 }
+ }
 </script>
 
 
@@ -58,6 +69,7 @@
    padding-bottom: 52px;
 	//隐藏动画切换的滚动条
    overflow-x: hidden;
+   position: relative;
  }
  .myicon-active{ //自己定义的点击路由变色的类
 	 color:red!important  //这里会导致滑动条一上来不能正常工作
@@ -107,7 +119,14 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+// 头部返回按钮样式
+.header_back{
+	position: absolute;
+	left:10px;
+	top: 10px;
+	z-index: 100;
+	color: white;
+}
 
 </style>
 
