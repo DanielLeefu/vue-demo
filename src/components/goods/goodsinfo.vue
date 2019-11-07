@@ -34,7 +34,7 @@
             <p class="price">
               市场价：<del>￥{{goodsinfo.market_price}}</del> &nbsp;&nbsp;销售价:<span class="now_price">￥{{goodsinfo.sell_price}}</span>
             </p>
-            <p> 购买数量: <numbox></numbox> </p>
+            <p> 购买数量: <numbox @getcount="getSelectedCount" :max="goodsinfo.stock_quantity"></numbox> </p>
              
            
             <p>
@@ -85,7 +85,8 @@ export default {
       id:this.$route.params.id, //将路由参数id获取挂载到data上 
       lubotu:[],  //放轮播图数据
       goodsinfo:{}, //获取到的商品的信息
-      ballFlag:false //控制小球显示和隐藏的标识符
+      ballFlag:false, //控制小球显示和隐藏的标识符
+      SelectedCount:1  //保存用户选中的商品数量
     }
   },
   created() {
@@ -130,14 +131,25 @@ export default {
 
       // 获取小球的位置
       const ballPosition = this.$refs.ball.getBoundingClientRect();
+      // 获取购物车的位置
+      const badgePosition = document.getElementById('badge').getBoundingClientRect();
 
+      // 求值
+      const xDist = badgePosition.left - ballPosition.left;
+      const yDist = badgePosition.top - ballPosition.top;
 
-      el.style.transform="translate(93px,230px)"; 
-      el.style.transition = "all 1s cubic-bezier(.17,.67,.23,.88) ";
+      el.style.transform=`translate(${xDist}px,${yDist}px)`; 
+      el.style.transition = "all 0.5s cubic-bezier(.17,.67,.23,.88) ";
       done()
     },
     afterEnter(el){
       this.ballFlag = !this.ballFlag;
+    },
+    getSelectedCount(count){
+      // 当子组件把选中的数量传递给父组件的时候把选中的值保存到data上
+      // 父组件拿到的子组件的值
+        this.SelectedCount = count;
+        console.log('fuzujie' + this.SelectedCount)
     }
   },
   components:{
