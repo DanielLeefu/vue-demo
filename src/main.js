@@ -6,6 +6,44 @@ import VueRouter from "vue-router"
 // 1.2安装路由
 Vue.use(VueRouter)
 
+// 注册vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
+var store = new Vuex.Store({
+  state: { //this.$store.state.***
+    car:[] //将购物车的数据用一个数组存储起来
+  },
+  mutations: { //this.$store.commit('方法的名称'，'按需传递唯一的参数')
+    addToCar(state,goodsinfo) {
+        //点击加入购物车，把商品信息保存在store中的car上
+      let flag = false
+      state.car.some(item => {
+        if (item.id == goodsinfo.id) {
+            item.count += parseInt(goodsinfo.count)
+            flag = true
+            return true //找到后终止some循环
+          }
+        })
+      // 如果循环完毕还没有找到，就把商品数据直接push到car
+      if (!flag) {
+          state.car.push(goodsinfo)
+        }
+      
+      }
+  },
+  getters: { //this.$store.getters.***
+    getAllCount(state) {
+      var c = 0;
+      state.car.forEach(item => {
+        c += item.count
+      })
+      return c
+      } 
+  }
+})
+
+
+
 // 导入格式化时间的插件
 import moment from 'moment'
 // 定义全局的过滤器
@@ -67,6 +105,6 @@ var vm = new Vue({
   el: "#app",
   // render函数渲染
   render: c => c(app),
-  router   //挂载路由
-  
+  router,   //挂载路由
+  store
 })

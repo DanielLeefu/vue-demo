@@ -122,6 +122,18 @@ export default {
     },
     addToShopCar(){ //添加到购物车
         this.ballFlag = !this.ballFlag
+
+        //拼接出一个，要保存到store中car数组里的商品信息对象
+        var goodsinfo = {
+          id:this.id,
+          count:this.SelectedCount,
+          price:this.goodsinfo.sell_price,
+          selected:true
+        }
+        
+        // 调用store中的mutations 来将商品加入购物车
+        this.$store.commit("addToCar",goodsinfo);
+
     },
     beforeEnter(el){  //小球动画
       el.style.transform="translate(0,0)"; 
