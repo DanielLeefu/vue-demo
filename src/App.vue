@@ -3,12 +3,14 @@
   <div class="app-container">
    
     <!-- 顶部header区域 -->
-    <mt-header fixed title="李思远Vue-项目" class="mystyle_header"></mt-header>
-	<!-- 返回按钮 -->
-	<div class="header_back" @click="back">
-		<span> < </span>
-		<span>返回</span>
-	</div>
+    <mt-header fixed title="李思远Vue-项目" class="mystyle_header">
+			<!-- 返回按钮 -->
+		 <span slot="left" @click="goBack" class="backbutton" v-show="flag">
+			<mt-button icon="back">返回</mt-button>
+		</span>
+	</mt-header>
+
+	
 	
     <!-- 中间的路由router-view 区域 -->
 	<!-- 加动画 -->
@@ -47,10 +49,27 @@
 
 <script>
  export default {
+	 data() {
+		 return {
+			 flag: false
+		 }
+	 },
 	 methods: {
-		back(){
+		goBack(){
 			this.$router.go(-1)
 		}	 
+	 },
+	 created() {
+		 this.flag = this.$route.path === '/home' ? false : true;
+	 },
+	 watch:{
+		 '$route.path':function(newVal){
+			 if(newVal === '/home'){
+				 this.flag = false;
+			 }else{
+				 this.flag = true;
+			 }
+		 }
 	 }
  }
 </script>
@@ -76,6 +95,7 @@
  }
  .mystyle_header{ //自己定义的头部header的类
 	 background: red 
+	
  }
 
 .v-enter{
@@ -120,14 +140,10 @@
     text-overflow: ellipsis;
 }
 // 头部返回按钮样式
-.header_back{
-	position: absolute;
-	left:10px;
-	top: 10px;
-	z-index: 100;
-	color: white;
-}
 
+ .backbutton{
+		 color:white
+	 }
 </style>
 
 
